@@ -1,6 +1,6 @@
 # Plataforma Web para la Gestión del TUPA de la UNSAAC
 
-Proyecto del curso Desarrollo de Software I.
+Proyecto de Desarrollo de Software I
 
 ## Integrantes
 - Rivera Solorzano Carlos Rodrigo
