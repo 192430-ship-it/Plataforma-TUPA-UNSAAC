@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro TUPA - UNSAAC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TopAppBar -->
+    <header>
+        <div class="logo-area">
+            <span class="icon-bank">🏛️</span>
+            <h1>UNSAAC TUPA</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="#" class="active">Inicio</a>
+                <a href="#">Catálogo</a>
+                <a href="#">Mis Trámites</a>
+            </nav>
+            <button class="profile-btn">👤</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <!-- Sidebar Desktop -->
+                    <!-- Sidebar sin el header de Gestión TUPA -->
+                    <aside class="sidebar">
+                        <div class="sidebar-card">
+                            <nav class="sidebar-nav">
+                                <a href="#" class="active">
+                                    <span>🏠</span>
+                                    <span>Inicio</span>
+                                </a>
+                                <a href="#">
+                                    <span>📋</span>
+                                    <span>Catálogo</span>
+                                </a>
+                                <a href="#">
+                                    <span>⏳</span>
+                                    <span>Mis Trámites</span>
+                                </a>
+                            </nav>
+                        </div>
+            </aside>
+
+            <!-- Formulario Principal -->
+            <section class="form-section">
+                <div class="form-card">
+                    <!-- Stepper -->
+                    <div class="stepper">
+                        <div class="step active">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Datos</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Trámite</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Archivos</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <span class="step-label">Confirmación</span>
+                        </div>
+                    </div>
+
+                    <!-- Formulario -->
+                    <div class="form-body">
+                        <div class="form-header">
+                            <h2>Datos del Interesado</h2>
+                            <p>Por favor, verifique su identidad para continuar con el registro del trámite.</p>
+                        </div>
+
+                        <form id="registroForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>TIPO DE USUARIO</label>
+                                    <select id="tipoUsuario">
+                                        <option value="estudiante">Estudiante de Pregrado</option>
+                                        <option value="estudiante_pos">Estudiante de Posgrado</option>
+                                        <option value="docente">Docente Universitario</option>
+                                        <option value="administrativo">Personal Administrativo</option>
+                                        <option value="externo">Usuario Externo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>CÓDIGO UNIVERSITARIO / DNI</label>
+                                    <div class="search-field">
+                                        <input type="text" id="documento" placeholder="Ingrese documento">
+                                        <button type="button" id="searchBtn" class="search-btn">🔍</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>NOMBRES Y APELLIDOS</label>
+                                    <input type="text" id="nombres" class="readonly-field" readonly placeholder="---">
+                                </div>
+                                <div class="form-group">
+                                    <label>FACULTAD / DEPENDENCIA</label>
+                                    <input type="text" id="facultad" class="readonly-field" readonly placeholder="---">
+                                </div>
+                            </div>
+
+                            <div class="form-divider"></div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>CORREO INSTITUCIONAL</label>
+                                    <div class="input-with-icon">
+                                        <span class="input-icon">📧</span>
+                                        <input type="email" id="correo" placeholder="usuario@unsaac.edu.pe">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>TELÉFONO DE CONTACTO</label>
+                                    <div class="input-with-icon">
+                                        <span class="input-icon">📞</span>
+                                        <input type="tel" id="telefono" placeholder="987 654 321">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensaje de validación -->
+                            <div class="validation-message hidden" id="validationMsg">
+                                <span class="validation-icon">✓</span>
+                                <p>Se han validado sus datos correctamente en la base de datos de la Universidad Nacional de San Antonio Abad del Cusco.</p>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="form-actions">
+                                <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
+                                <button type="button" class="btn-next" id="nextBtn">
+                                    Siguiente Paso
+                                    <span>→</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de información -->
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">✓</div>
+                        <h4>Identidad Segura</h4>
+                        <p>Validamos su código directamente con el sistema de matrícula ORA UNSAAC.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⚡</div>
+                        <h4>Trámite Ágil</h4>
+                        <p>El autocompletado reduce errores y tiempo de espera en la mesa de partes.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🕒</div>
+                        <h4>Disponibilidad</h4>
+                        <p>Puede iniciar su trámite las 24 horas del día, los 7 días de la semana.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>UNSAAC</h3>
+                <p>© 2024 Universidad Nacional de San Antonio Abad del Cusco - Dirección de Modernización</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Transparencia</a>
+                <a href="#">TUPA PDF</a>
+                <a href="#">Soporte</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Mobile -->
+    <nav class="mobile-nav">
+        <a href="#" class="active">
+            <span>🔍</span>
+            <span>Explorar</span>
+        </a>
+        <a href="#">
+            <span>📋</span>
+            <span>Trámites</span>
+        </a>
+        <a href="#">
+            <span>📊</span>
+            <span>Seguimiento</span>
+        </a>
+        <a href="#">
+            <span>👤</span>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
