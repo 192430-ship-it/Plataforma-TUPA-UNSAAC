@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSAAC TUPA - Portal de Trámites Administrativos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TopAppBar -->
+    <header>
+        <div class="logo-area">
+            <div class="icon-bank">🏛️</div>
+            <h1>UNSAAC TUPA</h1>
+        </div>
+        <nav>
+            <a href="#" class="active">Inicio</a>
+            <a href="#">Catálogo</a>
+            <a href="#">Seguimiento</a>
+        </nav>
+        <div class="header-actions">
+            <button class="search-btn">🔍</button>
+            <button class="login-btn">👤 Ingresar</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Simplifica tus trámites universitarios</h2>
+                <p>Accede a la plataforma oficial de la Dirección de Modernización de la UNSAAC para gestionar tus solicitudes de forma ágil y transparente.</p>
+                
+                <!-- Barra de búsqueda -->
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Ej: Constancia de estudios, Grado de Bachiller..." id="searchInput">
+                    <button id="searchBtn">Buscar</button>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="action-buttons">
+                    <button class="btn-primary">➕ Iniciar Trámite</button>
+                    <button class="btn-secondary">📊 Consultar Expediente</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-card">
+                <p class="stat-label">TRÁMITES ATENDIDOS</p>
+                <p class="stat-number">12,450+</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">TIEMPO PROMEDIO</p>
+                <p class="stat-number">3 Días</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">DIGITALIZADOS</p>
+                <p class="stat-number">98%</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">SATISFACCIÓN</p>
+                <p class="stat-number">4.8/5</p>
+            </div>
+        </section>
+
+        <!-- Trámites Frecuentes -->
+        <section class="procedures">
+            <div class="section-header">
+                <h3>Trámites Frecuentes</h3>
+                <a href="#" class="view-all">Ver catálogo completo →</a>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon graduation">🎓</div>
+                    <h4>Grados y Títulos</h4>
+                    <p>Solicitud para la obtención de grado de bachiller, título profesional y duplicados.</p>
+                    <a href="#" class="card-link">Iniciar proceso →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon document">📄</div>
+                    <h4>Constancias y Certificados</h4>
+                    <p>Expedición de certificados de estudios, constancias de egresado y matrícula.</p>
+                    <a href="#" class="card-link">Iniciar proceso →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon payment">💰</div>
+                    <h4>Devolución de Tasas</h4>
+                    <p>Procedimiento para el reembolso de pagos por conceptos no utilizados o erróneos.</p>
+                    <a href="#" class="card-link">Iniciar proceso →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avisos Institucionales -->
+        <section class="notices">
+            <h3>Avisos Institucionales</h3>
+            <div class="notices-carousel" id="carousel">
+                <div class="notice-card">
+                    <div class="notice-image notice-img-1"></div>
+                    <div class="notice-content">
+                        <span class="notice-tag important">Importante</span>
+                        <h5>Mantenimiento Programado del Portal</h5>
+                        <p>Sábado 24 de Agosto - 22:00 hrs.</p>
+                    </div>
+                </div>
+                <div class="notice-card">
+                    <div class="notice-image notice-img-2"></div>
+                    <div class="notice-content">
+                        <span class="notice-tag new">Nuevo Trámite</span>
+                        <h5>Grados Digitales con Firma Electrónica</h5>
+                        <p>Ya puedes solicitar tu grado 100% online.</p>
+                    </div>
+                </div>
+                <div class="notice-card">
+                    <div class="notice-image notice-img-3"></div>
+                    <div class="notice-content">
+                        <span class="notice-tag support">Soporte</span>
+                        <h5>Mesa de Ayuda Presencial</h5>
+                        <p>Horario extendido en el Campus Perayoc.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-area-small">
+                    <span>🏛️</span>
+                    <span>UNSAAC TUPA</span>
+                </div>
+                <p>Portal oficial de trámites y procedimientos administrativos de la Universidad Nacional de San Antonio Abad del Cusco.</p>
+                <p class="copyright">© 2024 Dirección de Modernización</p>
+            </div>
+            <div class="footer-links">
+                <div class="links-group">
+                    <p class="links-title">Información</p>
+                    <a href="#">Transparencia</a>
+                    <a href="#">TUPA PDF</a>
+                    <a href="#">Directivas</a>
+                </div>
+                <div class="links-group">
+                    <p class="links-title">Ayuda</p>
+                    <a href="#">Soporte</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Preguntas Frecuentes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Barra de navegación móvil -->
+    <nav class="mobile-nav">
+        <a href="#" class="active">🔍<span>Explorar</span></a>
+        <a href="#">📄<span>Trámites</span></a>
+        <a href="#">📈<span>Seguimiento</span></a>
+        <a href="#">👤<span>Perfil</span></a>
+    </nav>
+
+    <!-- Botón de ayuda flotante -->
+    <button class="fab" id="fabBtn">
+        💬
+        <span class="fab-tooltip">¿Necesitas ayuda?</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
