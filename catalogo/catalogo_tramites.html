@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSAAC TUPA - Catálogo de Procedimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TopAppBar -->
+    <header>
+        <div class="logo-area">
+            <span class="icon-bank">🏛️</span>
+            <h1>UNSAAC TUPA</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#" class="active">Catálogo</a>
+            <a href="#">Mis Trámites</a>
+        </nav>
+        <div class="header-actions">
+            <button class="profile-btn">👤</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero & Search Section -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h2>Catálogo de Procedimientos</h2>
+                <p>Encuentra y gestiona tus trámites administrativos de forma digital.</p>
+            </div>
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Buscar trámite por nombre o código...">
+            </div>
+        </section>
+
+        <!-- Categorías con borde cuadrado -->
+        <section class="categories-section">
+            <div class="categories-grid" id="categoriesGrid">
+                <button class="category-btn active" data-category="all">
+                    <span class="cat-icon">📋</span>
+                    <span>Todos</span>
+                </button>
+                <button class="category-btn" data-category="academicos">
+                    <span class="cat-icon">📚</span>
+                    <span>Académicos</span>
+                </button>
+                <button class="category-btn" data-category="matricula">
+                    <span class="cat-icon">📝</span>
+                    <span>Matrícula</span>
+                </button>
+                <button class="category-btn" data-category="grados">
+                    <span class="cat-icon">🎓</span>
+                    <span>Grados</span>
+                </button>
+                <button class="category-btn" data-category="pagos">
+                    <span class="cat-icon">💰</span>
+                    <span>Pagos</span>
+                </button>
+                <button class="category-btn" data-category="constancias">
+                    <span class="cat-icon">📄</span>
+                    <span>Constancias</span>
+                </button>
+                <button class="category-btn" data-category="otros">
+                    <span class="cat-icon">⚙️</span>
+                    <span>Otros</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Contenedor de resultados -->
+        <div class="results-container" id="resultsContainer"></div>
+
+        <!-- Procedimientos Grid - 3 columnas fijas -->
+        <section class="procedures-grid" id="proceduresGrid">
+            <!-- Los cards se cargan dinámicamente -->
+        </section>
+    </main>
+
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="mobile-nav">
+        <a href="#">
+            <span>🔍</span>
+            <span>Explorar</span>
+        </a>
+        <a href="#" class="active">
+            <span>📋</span>
+            <span>Trámites</span>
+        </a>
+        <a href="#">
+            <span>📊</span>
+            <span>Seguimiento</span>
+        </a>
+        <a href="#">
+            <span>👤</span>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-title">UNSAAC TUPA</span>
+                <p>© 2024 Universidad Nacional de San Antonio Abad del Cusco - Dirección de Modernización</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Transparencia</a>
+                <a href="#">TUPA PDF</a>
+                <a href="#">Soporte</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
