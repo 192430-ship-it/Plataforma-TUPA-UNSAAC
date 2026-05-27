@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSAAC TUPA | Panel Administrativo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar (NavigationDrawer) -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <div class="logo-area-sidebar">
+                    <span class="icon-bank-sidebar">▢</span>
+                    <h2>UNSAAC TUPA</h2>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">◯</div>
+                    <div>
+                        <p class="user-title">Gestión TUPA</p>
+                        <p class="user-subtitle">Portal Administrativo</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active" data-page="inicio-page">
+                    <span>⌂</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="#" data-page="tramites-page">
+                    <span>⌚</span>
+                    <span>Mis Trámites</span>
+                </a>
+                <a href="#" data-page="notifications-page">
+                    <span>●</span>
+                    <span>Notificaciones</span>
+                </a>
+                <a href="#" data-page="settings-page">
+                    <span>⚙</span>
+                    <span>Configuración</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <span>⇦</span>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- TopAppBar -->
+        <header class="top-header">
+            <div class="header-left">
+                <div class="mobile-menu">☰</div>
+                <h2>Dashboard de Gestión</h2>
+            </div>
+            <div class="header-right">
+                <button class="search-btn">⌕</button>
+                <div class="user-profile">
+                    <span class="user-name">Admin: J. Quispe</span>
+                    <span class="user-icon">○</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="inicio-page" class="page active">
+            <div class="dashboard-container">
+                <!-- KPIs / Bento Grid -->
+                <section class="kpi-grid">
+                <!-- KPI 1 -->
+                <div class="kpi-card primary">
+                    <div class="kpi-header">
+                        <span class="kpi-icon">▭</span>
+                        <span class="kpi-trend">+12%</span>
+                    </div>
+                    <p class="kpi-label">Total Trámites</p>
+                    <p class="kpi-value">1,284</p>
+                </div>
+                <!-- KPI 2 -->
+                <div class="kpi-card secondary">
+                    <div class="kpi-header">
+                        <span class="kpi-icon">⌚</span>
+                        <span class="kpi-badge">Meta: 3d</span>
+                    </div>
+                    <p class="kpi-label">Tiempo Promedio</p>
+                    <p class="kpi-value">4.2d</p>
+                </div>
+                <!-- KPI 3 -->
+                <div class="kpi-card tertiary">
+                    <div class="kpi-header">
+                        <span class="kpi-icon">✓</span>
+                        <span class="kpi-trend success">94%</span>
+                    </div>
+                    <p class="kpi-label">Tasa de Aprobación</p>
+                    <p class="kpi-value">88%</p>
+                </div>
+                <!-- Action Buttons Container -->
+                <div class="action-buttons">
+                    <button class="btn-pdf">
+                        ▭ Reporte PDF
+                    </button>
+                    <button class="btn-excel">
+                        ▤ Exportar Excel
+                    </button>
+                </div>
+            </section>
+
+            <!-- Main Grid -->
+            <div class="dashboard-grid">
+                <!-- Bandeja de Expedientes -->
+                <section class="inbox-section">
+                    <div class="inbox-header">
+                        <h3>
+                            <span>⌾</span>
+                            Bandeja de Expedientes Pendientes
+                        </h3>
+                        <button class="filter-btn">▽</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="expedients-table">
+                            <thead>
+                                <tr>
+                                    <th>PRIORIDAD</th>
+                                    <th>ID EXPEDIENTE</th>
+                                    <th>INTERESADO</th>
+                                    <th>FACULTAD</th>
+                                    <th>ESTADO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="priority alta">Alta</span></td>
+                                    <td class="exp-id">EXP-2024-00124</td>
+                                    <td>Carlos M. Huamán</td>
+                                    <td>Ingeniería Civil</td>
+                                    <td><span class="status validacion">Validación</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn" title="Validar">✓</button>
+                                        <button class="action-btn" title="Derivar">➤</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority media">Media</span></td>
+                                    <td class="exp-id">EXP-2024-00125</td>
+                                    <td>Lucía Valderrama</td>
+                                    <td>Derecho</td>
+                                    <td><span class="status pendiente">Pendiente Firma</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                        <button class="action-btn">➤</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority baja">Baja</span></td>
+                                    <td class="exp-id">EXP-2024-00128</td>
+                                    <td>Marcos Delgado</td>
+                                    <td>Medicina Humana</td>
+                                    <td><span class="status observado">Observado</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                        <button class="action-btn">➤</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority alta">Alta</span></td>
+                                    <td class="exp-id">EXP-2024-00130</td>
+                                    <td>Sonia Ticona</td>
+                                    <td>Economía</td>
+                                    <td><span class="status validacion">Validación</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                        <button class="action-btn">➤</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="inbox-footer">
+                        <span>Mostrando 1-4 de 42 expedientes</span>
+                        <div class="pagination">
+                            <button class="page-btn">◀</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">▶</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sidebar Derecho -->
+                <aside class="right-sidebar">
+                    <div class="action-buttons right-sidebar-actions">
+                        <button class="btn-pdf">
+                            ▭ Reporte PDF
+                        </button>
+                        <button class="btn-excel">
+                            ▤ Exportar Excel
+                        </button>
+                    </div>
+                    <!-- Trámites por Facultad -->
+                    <div class="chart-card">
+                        <h4>
+                            <span>▤</span>
+                            Trámites por Facultad
+                        </h4>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span>Ingenierías</span>
+                                <span class="chart-percent">42%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill primary" style="width: 42%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span>Ciencias de la Salud</span>
+                                <span class="chart-percent">28%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill secondary" style="width: 28%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span>Ciencias Sociales</span>
+                                <span class="chart-percent">15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill tertiary" style="width: 15%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span>Otros</span>
+                                <span class="chart-percent">15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill other" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acceso Rápido -->
+                    <div class="quick-access">
+                        <h4>
+                            <span>➤</span>
+                            Acceso Rápido
+                        </h4>
+                        <div class="quick-grid">
+                            <button class="quick-btn">
+                                <span>✓</span>
+                                <span>Validar DNI</span>
+                            </button>
+                            <button class="quick-btn">
+                                <span>☎</span>
+                                <span>Directorio</span>
+                            </button>
+                            <button class="quick-btn">
+                                <span>¶</span>
+                                <span>Base Legal</span>
+                            </button>
+                            <button class="quick-btn">
+                                <span>⌨</span>
+                                <span>Soporte IT</span>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section id="tramites-page" class="page">
+        <div class="dashboard-container">
+            <div class="dashboard-grid stacked">
+                <section class="inbox-section">
+                    <div class="inbox-header">
+                        <h3>
+                            <span>⌚</span>
+                            Expedientes Pendientes
+                        </h3>
+                        <button class="filter-btn">▽</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="expedients-table">
+                            <thead>
+                                <tr>
+                                    <th>PRIORIDAD</th>
+                                    <th>ID EXPEDIENTE</th>
+                                    <th>INTERESADO</th>
+                                    <th>FACULTAD</th>
+                                    <th>ESTADO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="priority alta">Alta</span></td>
+                                    <td class="exp-id">EXP-2024-00124</td>
+                                    <td>Carlos M. Huamán</td>
+                                    <td>Ingeniería Civil</td>
+                                    <td><span class="status validacion">Validación</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn" title="Validar">✓</button>
+                                        <button class="action-btn" title="Derivar">➤</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority media">Media</span></td>
+                                    <td class="exp-id">EXP-2024-00125</td>
+                                    <td>Lucía Valderrama</td>
+                                    <td>Derecho</td>
+                                    <td><span class="status pendiente">Pendiente Firma</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                        <button class="action-btn">➤</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <div class="dashboard-grid stacked">
+                <section class="inbox-section">
+                    <div class="inbox-header">
+                        <h3>
+                            <span>✓</span>
+                            Expedientes Hechos
+                        </h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="expedients-table">
+                            <thead>
+                                <tr>
+                                    <th>PRIORIDAD</th>
+                                    <th>ID EXPEDIENTE</th>
+                                    <th>INTERESADO</th>
+                                    <th>FACULTAD</th>
+                                    <th>ESTADO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="priority media">Media</span></td>
+                                    <td class="exp-id">EXP-2024-00128</td>
+                                    <td>Marcos Delgado</td>
+                                    <td>Medicina Humana</td>
+                                    <td><span class="status validacion">Aprobado</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority baja">Baja</span></td>
+                                    <td class="exp-id">EXP-2024-00130</td>
+                                    <td>Sonia Ticona</td>
+                                    <td>Economía</td>
+                                    <td><span class="status validacion">Completado</span></td>
+                                    <td class="actions">
+                                        <button class="action-btn">✓</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="notifications-page" class="page">
+        <div class="dashboard-container">
+            <div class="chart-card notifications-card">
+                <h4>
+                    <span>●</span>
+                    Notificaciones
+                </h4>
+                <p> Aquí verás alertas importantes sobre tus trámites, mensajes de la administración y novedades del sistema.</p>
+                <ul class="notifications-list">
+                    <li class="notification-item">
+                        <strong>Nuevo trámite asignado</strong>
+                        <span>Revisa el expediente asignado por el equipo de atención.</span>
+                    </li>
+                    <li class="notification-item">
+                        <strong>Documento pendiente de firma</strong>
+                        <span>Un trámite espera tu confirmación en el sistema.</span>
+                    </li>
+                    <li class="notification-item">
+                        <strong>Cambios en los tiempos de atención</strong>
+                        <span>Los tiempos de procesamiento se han actualizado hoy.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="settings-page" class="page">
+        <div class="dashboard-container">
+            <div class="chart-card">
+                <h4>
+                    <span>⚙</span>
+                    Configuración
+                </h4>
+                <form class="settings-form">
+                    <div class="settings-group">
+                        <label for="fullName">Nombre completo</label>
+                        <input id="fullName" type="text" placeholder="J. Quispe">
+                    </div>
+                    <div class="settings-group">
+                        <label for="email">Correo electrónico</label>
+                        <input id="email" type="email" placeholder="admin@unsaac.edu.pe">
+                    </div>
+                    <div class="settings-group">
+                        <label for="phone">Teléfono</label>
+                        <input id="phone" type="tel" placeholder="(+51) 999 999 999">
+                    </div>
+                    <div class="settings-group">
+                        <label for="currentPassword">Contraseña actual</label>
+                        <input id="currentPassword" type="password" placeholder="Contraseña actual">
+                    </div>
+                    <div class="settings-group">
+                        <label for="newPassword">Nueva contraseña</label>
+                        <input id="newPassword" type="password" placeholder="Nueva contraseña">
+                    </div>
+                    <button type="submit" class="btn-excel">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <p>UNSAAC TUPA</p>
+                <p>© 2024 Universidad Nacional de San Antonio Abad del Cusco - Dirección de Modernización</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Transparencia</a>
+                <a href="#">TUPA PDF</a>
+                <a href="#">Soporte</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Mobile -->
+    <nav class="mobile-nav">
+        <a href="#" class="active" data-page="inicio-page">
+            <span>⌂</span>
+            <span>Inicio</span>
+        </a>
+        <a href="#" data-page="tramites-page">
+            <span>⌚</span>
+            <span>Mis Trámites</span>
+        </a>
+        <a href="#" data-page="notifications-page">
+            <span>●</span>
+            <span>Notificaciones</span>
+        </a>
+        <a href="#" data-page="settings-page">
+            <span>⚙</span>
+            <span>Configuración</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
