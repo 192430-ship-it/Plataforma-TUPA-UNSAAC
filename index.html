@@ -2,16 +2,121 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNSAAC TUPA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+        }
+        header {
+            background: #1a3a6b;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header h1 { font-size: 22px; }
+        header p { font-size: 13px; opacity: 0.8; }
+        .hero {
+            background: linear-gradient(135deg, #1a3a6b, #2e6da4);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .hero h2 { font-size: 28px; margin-bottom: 10px; }
+        .hero p { font-size: 15px; opacity: 0.85; }
+        .modules {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); }
+        .card .icon { font-size: 36px; margin-bottom: 12px; }
+        .card h3 { color: #1a3a6b; margin-bottom: 8px; }
+        .card p { font-size: 13px; color: #666; margin-bottom: 15px; }
+        .card a {
+            display: inline-block;
+            background: #1a3a6b;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .card a:hover { background: #2e6da4; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Plataforma TUPA - UNSAAC</h1>
-    <ul>
-        <li><a href="panel_principal/Panel_principal.html">Panel Principal</a></li>
-        <li><a href="catalogo/catalogo_tramites.html">Catálogo</a></li>
-        <li><a href="panel_admin/panel_admin.html">Panel Admin</a></li>
-        <li><a href="tramites/tramites.html">Trámites</a></li>
-        <li><a href="Seguimiento/seguimiento.html">Seguimiento</a></li>
-    </ul>
+    <header>
+        <div>
+            <h1>🏛️ UNSAAC TUPA</h1>
+            <p>Plataforma Web para la Gestión del TUPA</p>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>Portal de Trámites Administrativos</h2>
+        <p>Proyecto de Desarrollo de Software I</p>
+    </div>
+
+    <div class="modules">
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>Panel Principal</h3>
+            <p>Página de inicio del portal TUPA</p>
+            <a href="panel_principal/Panel_principal.html">Ingresar</a>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>Catálogo</h3>
+            <p>Catálogo de trámites disponibles</p>
+            <a href="catalogo/catalogo_tramites.html">Ingresar</a>
+        </div>
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Panel Admin</h3>
+            <p>Administración del sistema</p>
+            <a href="panel_admin/panel_admin.html">Ingresar</a>
+        </div>
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>Trámites</h3>
+            <p>Gestión de trámites</p>
+            <a href="tramites/tramites.html">Ingresar</a>
+        </div>
+        <div class="card">
+            <div class="icon">🔍</div>
+            <h3>Seguimiento</h3>
+            <p>Seguimiento de trámites</p>
+            <a href="Seguimiento/seguimiento.html">Ingresar</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Rivera Solorzano Carlos Rodrigo &nbsp;|&nbsp; Ttito Quispe Abelardo &nbsp;|&nbsp; Sota Escalante Baruc</p>
+        <p style="margin-top:5px">UNSAAC © 2026</p>
+    </footer>
 </body>
 </html>
