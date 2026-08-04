@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSAAC TUPA | Login Administrativo</title>
+    <link rel="stylesheet" href="../catalogo/styles.css">
+    <style>
+        .login-main {
+            padding: 40px 20px 80px;
+            min-height: calc(100vh - 64px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(245,240,237,0.98) 0%, rgba(248,244,241,1) 100%);
+        }
+        .login-card {
+            width: min(100%, 420px);
+            background: #fff;
+            border: 1px solid rgba(227,224,221,0.9);
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 28px 48px rgba(41,22,9,0.08);
+        }
+        .login-card h1 {
+            margin-bottom: 12px;
+            font-size: 28px;
+            letter-spacing: -0.03em;
+            color: #2a1d16;
+        }
+        .login-card p.subtitle {
+            margin-bottom: 26px;
+            color: #5a4d48;
+            line-height: 1.7;
+        }
+        .login-form {
+            display: grid;
+            gap: 18px;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4e4138;
+            letter-spacing: 0.02em;
+        }
+        .login-form input {
+            width: 100%;
+            border: 1px solid #dbd5d0;
+            background: #fff;
+            color: #2b1e17;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .login-form input:focus {
+            outline: none;
+            border-color: #8f6251;
+            box-shadow: 0 0 0 4px rgba(143,98,81,0.12);
+        }
+        .login-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .login-note {
+            margin-top: 22px;
+            font-size: 0.95rem;
+            color: #63514a;
+            line-height: 1.7;
+        }
+        .field-error {
+            background: #fdecea;
+            color: #9f2c2a;
+            border: 1px solid #f5c2c0;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .hidden { display: none !important; }
+        @media (max-width: 640px) {
+            .login-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <span class="icon-bank" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9.5L12 4L21 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4.5 9.5V19.5M8.5 9.5V19.5M15.5 9.5V19.5M19.5 9.5V19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 19.5H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 22H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </span>
+            <h1>UNSAAC TUPA</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <a href="../panel_principal/Panel_principal.html">Inicio</a>
+                <a href="../catalogo/catalogo_tramites.html">Catálogo</a>
+                <a href="../tramites/tramites.html">Mis Trámites</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <div class="login-card">
+            <h1>Acceso administrativo</h1>
+            <p class="subtitle">Inicie sesión con su cuenta administrativa registrada en la base de datos de usuarios administrativos para acceder al panel de gestión.</p>
+            <form id="adminLoginForm" class="login-form" novalidate>
+                <div>
+                    <label for="username">Usuario</label>
+                    <input id="username" name="username" type="text" autocomplete="username" placeholder="Ingrese su usuario" required>
+                </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required>
+                </div>
+                <p id="loginError" class="field-error hidden"></p>
+                <div class="login-actions">
+                    <button type="submit" class="btn-primary">Ingresar</button>
+                </div>
+            </form>
+            <p class="login-note">Este acceso está reservado para usuarios administrativos registrados en la tabla <strong>usuarios_administrativos</strong>. Si no conoce sus credenciales, comuníquese con la Oficina de Modernización.</p>
+        </div>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>

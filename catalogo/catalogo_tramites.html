@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNSAAC TUPA - Catálogo de Procedimientos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,63 +16,62 @@
     <!-- TopAppBar -->
     <header>
         <div class="logo-area">
-            <span class="icon-bank">🏛️</span>
+            <span class="icon-bank" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9.5L12 4L21 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4.5 9.5V19.5M8.5 9.5V19.5M15.5 9.5V19.5M19.5 9.5V19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 19.5H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 22H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </span>
             <h1>UNSAAC TUPA</h1>
         </div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#" class="active">Catálogo</a>
-            <a href="#">Mis Trámites</a>
-        </nav>
-        <div class="header-actions">
-            <button class="profile-btn">👤</button>
+        <div class="header-right">
+            <nav>
+                <a href="../panel_principal/Panel_principal.html">Inicio</a>
+                <a href="catalogo_tramites.html" class="active">Catálogo</a>
+                <a href="../tramites/tramites.html">Mis Trámites</a>
+            </nav>
+            <a href="../panel_admin/login.html" class="profile-btn" aria-label="Perfil">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M4.5 19.5C5.6 16.2 8.4 14.5 12 14.5C15.6 14.5 18.4 16.2 19.5 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
         </div>
     </header>
 
     <main>
         <!-- Hero & Search Section -->
         <section class="hero-section">
-            <div class="hero-text">
-                <h2>Catálogo de Procedimientos</h2>
-                <p>Encuentra y gestiona tus trámites administrativos de forma digital.</p>
+            <div class="masthead">
+                <p class="masthead-eyebrow">Universidad Nacional de San Antonio Abad del Cusco</p>
+                <h2 class="masthead-title">Catálogo de Procedimientos</h2>
+                <p class="masthead-sub">Texto Único de Procedimientos Administrativos — consulte requisitos, costos y plazos antes de iniciar su trámite.</p>
             </div>
+
             <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="Buscar trámite por nombre o código...">
+                <label for="searchInput" class="search-label">Buscar en el registro</label>
+                <div class="search-field">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M21 21L16.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Nombre del trámite o código, p. ej. T-0042">
+                </div>
             </div>
         </section>
 
-        <!-- Categorías con borde cuadrado -->
+        <!-- Categorías: pestañas de índice -->
         <section class="categories-section">
             <div class="categories-grid" id="categoriesGrid">
-                <button class="category-btn active" data-category="all">
-                    <span class="cat-icon">📋</span>
-                    <span>Todos</span>
-                </button>
-                <button class="category-btn" data-category="academicos">
-                    <span class="cat-icon">📚</span>
-                    <span>Académicos</span>
-                </button>
-                <button class="category-btn" data-category="matricula">
-                    <span class="cat-icon">📝</span>
-                    <span>Matrícula</span>
-                </button>
-                <button class="category-btn" data-category="grados">
-                    <span class="cat-icon">🎓</span>
-                    <span>Grados</span>
-                </button>
-                <button class="category-btn" data-category="pagos">
-                    <span class="cat-icon">💰</span>
-                    <span>Pagos</span>
-                </button>
-                <button class="category-btn" data-category="constancias">
-                    <span class="cat-icon">📄</span>
-                    <span>Constancias</span>
-                </button>
-                <button class="category-btn" data-category="otros">
-                    <span class="cat-icon">⚙️</span>
-                    <span>Otros</span>
-                </button>
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="academicos">Académicos</button>
+                <button class="category-btn" data-category="matricula">Matrícula</button>
+                <button class="category-btn" data-category="grados">Grados</button>
+                <button class="category-btn" data-category="pagos">Pagos</button>
+                <button class="category-btn" data-category="constancias">Constancias</button>
+                <button class="category-btn" data-category="otros">Otros</button>
             </div>
         </section>
 
@@ -83,19 +87,19 @@
     <!-- BottomNavBar (Mobile Only) -->
     <nav class="mobile-nav">
         <a href="#">
-            <span>🔍</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21L16.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             <span>Explorar</span>
         </a>
         <a href="#" class="active">
-            <span>📋</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4H18V20L12 17L6 20V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             <span>Trámites</span>
         </a>
         <a href="#">
-            <span>📊</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V13M11 20V8M18 20V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             <span>Seguimiento</span>
         </a>
-        <a href="#">
-            <span>👤</span>
+        <a href="../panel_admin/login.html">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 19.5C5.6 16.2 8.4 14.5 12 14.5C15.6 14.5 18.4 16.2 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             <span>Perfil</span>
         </a>
     </nav>

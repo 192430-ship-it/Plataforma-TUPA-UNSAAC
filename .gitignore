@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (credenciales reales - nunca subir)
+.env
+
+# Logs
+*.log
+
+# Archivos subidos por usuarios (contenido dinámico, no versionar)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNSAAC TUPA - Portal de Trámites Administrativos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,59 +16,81 @@
     <!-- TopAppBar -->
     <header>
         <div class="logo-area">
-            <div class="icon-bank">🏛️</div>
+            <span class="icon-bank" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9.5L12 4L21 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4.5 9.5V19.5M8.5 9.5V19.5M15.5 9.5V19.5M19.5 9.5V19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 19.5H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M2.5 22H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </span>
             <h1>UNSAAC TUPA</h1>
         </div>
-        <nav>
-            <a href="#" class="active">Inicio</a>
-            <a href="#">Catálogo</a>
-            <a href="#">Seguimiento</a>
-        </nav>
-        <div class="header-actions">
-            <button class="search-btn">🔍</button>
-            <button class="login-btn">👤 Ingresar</button>
+        <div class="header-right">
+            <nav>
+                <a href="Panel_principal.html" class="active">Inicio</a>
+                <a href="../catalogo/catalogo_tramites.html">Catálogo</a>
+                <a href="../tramites/tramites.html">Mis Trámites</a>
+            </nav>
+            <a href="../panel_admin/login.html" class="profile-btn" aria-label="Perfil">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M4.5 19.5C5.6 16.2 8.4 14.5 12 14.5C15.6 14.5 18.4 16.2 19.5 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Simplifica tus trámites universitarios</h2>
-                <p>Accede a la plataforma oficial de la Dirección de Modernización de la UNSAAC para gestionar tus solicitudes de forma ágil y transparente.</p>
-                
-                <!-- Barra de búsqueda -->
-                <div class="search-bar">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Ej: Constancia de estudios, Grado de Bachiller..." id="searchInput">
+        <!-- Hero / Masthead -->
+        <section class="hero-section">
+            <div class="masthead">
+                <p class="masthead-eyebrow">Universidad Nacional de San Antonio Abad del Cusco</p>
+                <h2 class="masthead-title">Simplifica tus trámites universitarios</h2>
+                <p class="masthead-sub">Accede a la plataforma oficial de la Dirección de Modernización de la UNSAAC para gestionar tus solicitudes de forma ágil y transparente.</p>
+            </div>
+
+            <div class="search-container">
+                <label for="searchInput" class="search-label">Buscar un trámite</label>
+                <div class="search-field">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M21 21L16.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Ej: Constancia de estudios, Grado de Bachiller...">
                     <button id="searchBtn">Buscar</button>
                 </div>
+            </div>
 
-                <!-- Botones de acción -->
-                <div class="action-buttons">
-                    <button class="btn-primary">➕ Iniciar Trámite</button>
-                    <button class="btn-secondary">📊 Consultar Expediente</button>
-                </div>
+            <div class="action-buttons">
+                <button class="btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Iniciar Trámite
+                </button>
+                <button class="btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V13M11 20V8M18 20V4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Consultar Expediente
+                </button>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats">
+        <!-- Indicadores -->
+        <section class="stats" aria-label="Indicadores del portal">
             <div class="stat-card">
-                <p class="stat-label">TRÁMITES ATENDIDOS</p>
                 <p class="stat-number">12,450+</p>
+                <p class="stat-label">Trámites atendidos</p>
             </div>
             <div class="stat-card">
-                <p class="stat-label">TIEMPO PROMEDIO</p>
-                <p class="stat-number">3 Días</p>
+                <p class="stat-number">3 días</p>
+                <p class="stat-label">Tiempo promedio</p>
             </div>
             <div class="stat-card">
-                <p class="stat-label">DIGITALIZADOS</p>
                 <p class="stat-number">98%</p>
+                <p class="stat-label">Digitalizados</p>
             </div>
             <div class="stat-card">
-                <p class="stat-label">SATISFACCIÓN</p>
                 <p class="stat-number">4.8/5</p>
+                <p class="stat-label">Satisfacción</p>
             </div>
         </section>
 
@@ -71,26 +98,26 @@
         <section class="procedures">
             <div class="section-header">
                 <h3>Trámites Frecuentes</h3>
-                <a href="#" class="view-all">Ver catálogo completo →</a>
+                <a href="../catalogo/catalogo_tramites.html" class="view-all">Ver catálogo completo →</a>
             </div>
             <div class="cards-grid">
                 <div class="card">
-                    <div class="card-icon graduation">🎓</div>
+                    <p class="card-eyebrow">Grados</p>
                     <h4>Grados y Títulos</h4>
-                    <p>Solicitud para la obtención de grado de bachiller, título profesional y duplicados.</p>
-                    <a href="#" class="card-link">Iniciar proceso →</a>
+                    <p class="card-desc">Solicitud para la obtención de grado de bachiller, título profesional y duplicados.</p>
+                    <a href="../catalogo/catalogo_tramites.html" class="card-link">Iniciar proceso →</a>
                 </div>
                 <div class="card">
-                    <div class="card-icon document">📄</div>
+                    <p class="card-eyebrow">Constancias</p>
                     <h4>Constancias y Certificados</h4>
-                    <p>Expedición de certificados de estudios, constancias de egresado y matrícula.</p>
-                    <a href="#" class="card-link">Iniciar proceso →</a>
+                    <p class="card-desc">Expedición de certificados de estudios, constancias de egresado y matrícula.</p>
+                    <a href="../catalogo/catalogo_tramites.html" class="card-link">Iniciar proceso →</a>
                 </div>
                 <div class="card">
-                    <div class="card-icon payment">💰</div>
+                    <p class="card-eyebrow">Pagos</p>
                     <h4>Devolución de Tasas</h4>
-                    <p>Procedimiento para el reembolso de pagos por conceptos no utilizados o erróneos.</p>
-                    <a href="#" class="card-link">Iniciar proceso →</a>
+                    <p class="card-desc">Procedimiento para el reembolso de pagos por conceptos no utilizados o erróneos.</p>
+                    <a href="../catalogo/catalogo_tramites.html" class="card-link">Iniciar proceso →</a>
                 </div>
             </div>
         </section>
@@ -137,7 +164,11 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo-area-small">
-                    <span>🏛️</span>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9.5L12 4L21 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.5 9.5V19.5M8.5 9.5V19.5M15.5 9.5V19.5M19.5 9.5V19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M2.5 19.5H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
                     <span>UNSAAC TUPA</span>
                 </div>
                 <p>Portal oficial de trámites y procedimientos administrativos de la Universidad Nacional de San Antonio Abad del Cusco.</p>
@@ -162,15 +193,27 @@
 
     <!-- Barra de navegación móvil -->
     <nav class="mobile-nav">
-        <a href="#" class="active">🔍<span>Explorar</span></a>
-        <a href="#">📄<span>Trámites</span></a>
-        <a href="#">📈<span>Seguimiento</span></a>
-        <a href="#">👤<span>Perfil</span></a>
+        <a href="../catalogo/catalogo_tramites.html">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21L16.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span>Explorar</span>
+        </a>
+        <a href="../tramites/tramites.html">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4H18V20L12 17L6 20V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span>Trámites</span>
+        </a>
+        <a href="#">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V13M11 20V8M18 20V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span>Seguimiento</span>
+        </a>
+        <a href="../panel_admin/login.html">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 19.5C5.6 16.2 8.4 14.5 12 14.5C15.6 14.5 18.4 16.2 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span>Perfil</span>
+        </a>
     </nav>
 
     <!-- Botón de ayuda flotante -->
-    <button class="fab" id="fabBtn">
-        💬
+    <button class="fab" id="fabBtn" aria-label="¿Necesitas ayuda?">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5H20V16H8L4 19.5V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         <span class="fab-tooltip">¿Necesitas ayuda?</span>
     </button>
 
