@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSAAC TUPA | Panel de Control</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <div class="logo-area-sidebar">
+                    <span class="icon-bank-sidebar">🏛️</span>
+                    <h2>UNSAAC TUPA</h2>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">⚙</div>
+                    <div>
+                        <p class="user-title">Panel de Control</p>
+                        <p class="user-subtitle">Despliegue y Arquitectura</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active" data-page="resumen-page">
+                    <span>⌂</span>
+                    <span>Resumen</span>
+                </a>
+                <a href="#" data-page="despliegues-page">
+                    <span>▤</span>
+                    <span>Despliegues</span>
+                </a>
+                <a href="#" data-page="notificaciones-page">
+                    <span>●</span>
+                    <span>Notificaciones</span>
+                </a>
+                <a href="#" data-page="arquitectura-page">
+                    <span>▢</span>
+                    <span>Arquitectura</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="back-link">
+                    <span>⇦</span>
+                    <span>Volver al inicio</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <div class="mobile-menu">☰</div>
+                <h2>Panel de Control de Despliegue</h2>
+            </div>
+            <div class="header-right">
+                <div class="bell-wrapper">
+                    <button class="bell-btn" id="bellBtn">🔔<span class="bell-badge" id="bellBadge">3</span></button>
+                    <div class="bell-dropdown" id="bellDropdown">
+                        <div class="bell-dropdown-header">Notificaciones del sistema</div>
+                        <div id="bellList"></div>
+                    </div>
+                </div>
+                <div class="status-pill" id="statusPill">
+                    <span class="status-dot"></span>
+                    <span>Sitio en línea</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== RESUMEN ===== -->
+        <section id="resumen-page" class="page active">
+            <div class="dashboard-container">
+                <section class="kpi-grid">
+                    <div class="kpi-card primary">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">🟢</span>
+                            <span class="kpi-trend success">Activo</span>
+                        </div>
+                        <p class="kpi-label">Estado del sitio</p>
+                        <p class="kpi-value">En línea</p>
+                    </div>
+                    <div class="kpi-card secondary">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">🚀</span>
+                            <span class="kpi-badge">main</span>
+                        </div>
+                        <p class="kpi-label">Último despliegue</p>
+                        <p class="kpi-value" id="ultimoDeploy">—</p>
+                    </div>
+                    <div class="kpi-card tertiary">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">⏱</span>
+                            <span class="kpi-trend success">Estable</span>
+                        </div>
+                        <p class="kpi-label">Tiempo de build (prom.)</p>
+                        <p class="kpi-value">42s</p>
+                    </div>
+                    <div class="kpi-card quaternary">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">📶</span>
+                            <span class="kpi-badge">30 días</span>
+                        </div>
+                        <p class="kpi-label">Uptime</p>
+                        <p class="kpi-value">99.9%</p>
+                    </div>
+                </section>
+
+                <div class="chart-card">
+                    <h4><span>🔄</span> Flujo de despliegue (CI/CD)</h4>
+                    <div class="pipeline-flow">
+                        <div class="pipeline-step">
+                            <span class="pipeline-icon">📝</span>
+                            <p>Push a <code>main</code></p>
+                        </div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">
+                            <span class="pipeline-icon">⚙️</span>
+                            <p>GitHub Actions</p>
+                        </div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">
+                            <span class="pipeline-icon">📦</span>
+                            <p>Build del artifact</p>
+                        </div>
+                        <span class="pipeline-arrow">→</span>
+                        <div class="pipeline-step">
+                            <span class="pipeline-icon">🌐</span>
+                            <p>GitHub Pages</p>
+                        </div>
+                    </div>
+                    <p class="pipeline-note">Cada push a <code>main</code> dispara el workflow definido en <code>.github/workflows/deploy.yml</code> y publica el sitio automáticamente, sin pasos manuales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESPLIEGUES ===== -->
+        <section id="despliegues-page" class="page">
+            <div class="dashboard-container">
+                <div class="chart-card">
+                    <h4><span>▤</span> Historial de despliegues</h4>
+                    <p class="pipeline-note">Datos de referencia para el equipo. Se completará con datos reales de GitHub Actions una vez que el workflow de CI/CD quede activo.</p>
+                    <div class="table-wrapper">
+                        <table class="deploys-table" id="deploysTable">
+                            <thead>
+                                <tr>
+                                    <th>Commit</th>
+                                    <th>Descripción</th>
+                                    <th>Autor</th>
+                                    <th>Estado</th>
+                                    <th>Duración</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deploysBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NOTIFICACIONES ===== -->
+        <section id="notificaciones-page" class="page">
+            <div class="dashboard-container">
+                <div class="chart-card">
+                    <h4><span>●</span> Centro de notificaciones</h4>
+                    <p class="pipeline-note">Eventos relacionados a builds, despliegues y estado del sitio.</p>
+                    <ul class="notifications-list" id="notificationsList"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ARQUITECTURA ===== -->
+        <section id="arquitectura-page" class="page">
+            <div class="dashboard-container">
+                <div class="chart-card">
+                    <h4><span>▢</span> Arquitectura del sistema</h4>
+                    <p class="pipeline-note">Sitio estático (HTML/CSS/JS) sin backend activo. Cada módulo vive en su propia carpeta autocontenida.</p>
+                    <div class="stack-grid">
+                        <div class="stack-item">
+                            <span class="stack-label">Frontend</span>
+                            <span class="stack-value">HTML5 · CSS3 · JavaScript vanilla</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="stack-label">Hosting</span>
+                            <span class="stack-value">GitHub Pages</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="stack-label">CI/CD</span>
+                            <span class="stack-value">GitHub Actions</span>
+                        </div>
+                        <div class="stack-item">
+                            <span class="stack-label">Versionado</span>
+                            <span class="stack-value">Git · rama por integrante · PR a main</span>
+                        </div>
+                    </div>
+                    <p class="pipeline-note">Documentación completa en <code>ARQUITECTURA.md</code>, en la raíz del repositorio.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <p>UNSAAC TUPA · Panel de Control</p>
+                <p>© 2026 Universidad Nacional de San Antonio Abad del Cusco</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Volver al inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Mobile -->
+    <nav class="mobile-nav">
+        <a href="#" class="active" data-page="resumen-page">
+            <span>⌂</span>
+            <span>Resumen</span>
+        </a>
+        <a href="#" data-page="despliegues-page">
+            <span>▤</span>
+            <span>Despliegues</span>
+        </a>
+        <a href="#" data-page="notificaciones-page">
+            <span>●</span>
+            <span>Alertas</span>
+        </a>
+        <a href="#" data-page="arquitectura-page">
+            <span>▢</span>
+            <span>Arq.</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
