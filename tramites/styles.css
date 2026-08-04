@@ -1,3 +1,16 @@
+:root {
+    --maroon-900: #4A0E1F;
+    --gold-600: #B08628;
+    --ink-900: #1E1B18;
+    --ink-600: #564242;
+    --stone-050: #FAF9F6;
+    --stone-100: #F1EFE9;
+    --stone-300: #E7E3D9;
+    --white: #FFFFFF;
+    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
 /* Reset y estilos base */
 * {
     margin: 0;
@@ -6,17 +19,16 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f8f9fd;
-    color: #191c1f;
+    font-family: var(--font-body);
+    background-color: var(--stone-050);
+    color: var(--ink-900);
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* ========== HEADER MODIFICADO - Logo y menú separados correctamente ========== */
-/* ========== HEADER - Logo y menú alineados a la izquierda ========== */
+/* ========== HEADER ========== */
 header {
     position: sticky;
     top: 0;
@@ -27,26 +39,32 @@ header {
     margin: 0 auto;
     padding: 0 32px;
     height: 64px;
-    background-color: #f8f9fd;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--stone-050);
+    border-bottom: 1px solid var(--stone-300);
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .icon-bank {
-    font-size: 32px;
-    color: #4b000e;
+    display: flex;
+    color: var(--maroon-900);
+}
+
+.icon-bank svg {
+    width: 24px;
+    height: 24px;
 }
 
 .logo-area h1 {
+    font-family: var(--font-display);
     font-size: 20px;
     font-weight: 600;
-    color: #4b000e;
-    letter-spacing: -0.025em;
+    color: var(--maroon-900);
+    letter-spacing: -0.01em;
     white-space: nowrap;
 }
 
@@ -54,7 +72,7 @@ header {
     display: flex;
     align-items: center;
     gap: 48px;
-    margin-left: 48px; /* Espacio entre logo y menú */
+    margin-left: 48px;
 }
 
 nav {
@@ -67,55 +85,50 @@ nav a {
     text-decoration: none;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.15s;
-    color: #564242;
-    padding-bottom: 4px;
+    color: var(--ink-600);
+    padding: 20px 0;
+    border-bottom: 2px solid transparent;
     white-space: nowrap;
 }
 
 nav a:hover {
-    color: #0060a8;
+    color: var(--maroon-900);
 }
 
 nav a.active {
-    color: #0060a8;
-    border-bottom: 2px solid #0060a8;
+    color: var(--maroon-900);
+    border-bottom-color: var(--gold-600);
 }
 
 .profile-btn {
     background: none;
-    border: none;
-    font-size: 28px;
+    border: 1px solid transparent;
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    transition: background-color 0.15s;
-    margin-left: auto; /* Empuja el botón de perfil a la derecha */
+    color: var(--ink-600);
+    display: flex;
+    transition: all 0.15s;
+    margin-left: auto;
+}
+
+.profile-btn svg {
+    width: 22px;
+    height: 22px;
 }
 
 .profile-btn:hover {
-    background-color: #e7e8ec;
+    background-color: var(--stone-100);
+    color: var(--maroon-900);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    header {
-        padding: 0 16px;
-    }
-    
-    .header-right {
-        margin-left: 0;
-    }
-    
-    nav {
-        display: none;
-    }
-    
-    .profile-btn {
-        margin-left: auto;
-    }
+    header { padding: 0 16px; }
+    nav { display: none; }
+    .logo-area { margin-right: 0; }
 }
 
 /* ========== MAIN CONTENT ========== */
@@ -207,6 +220,27 @@ main {
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.15s;
+}
+
+.step:hover {
+    background-color: rgba(0, 96, 168, 0.08);
+}
+
+.step:hover .step-number {
+    box-shadow: 0 0 0 3px rgba(0, 96, 168, 0.2);
+}
+
+.step.completed .step-number {
+    background-color: #d3e4ff;
+    color: #0060a8;
+}
+
+.step.completed .step-label {
+    color: #0060a8;
 }
 
 .step-number {
@@ -442,40 +476,6 @@ main {
     transform: scale(1.02);
 }
 
-/* Info Cards */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 24px;
-}
-
-.info-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #ddc0bf;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.info-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.info-card h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #191c1f;
-    margin-bottom: 8px;
-}
-
-.info-card p {
-    font-size: 13px;
-    color: #564242;
-    line-height: 1.4;
-}
-
 /* Footer */
 footer {
     background-color: white;
@@ -576,10 +576,6 @@ footer {
         flex-direction: row;
         flex-wrap: wrap;
     }
-    
-    .info-cards {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -667,5 +663,518 @@ footer {
         margin: 0 4px;
         margin-bottom: 26px;
         min-width: 15px;
+    }
+}
+/* ============================================================
+   AMPLIACIÓN: Wizard de 4 pasos (Datos / Trámite / Archivos / Confirmación)
+   ============================================================ */
+
+.step-panel {
+    display: none;
+}
+
+.step-panel.active {
+    display: block;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group.full-width {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f8f9fd;
+    border: 1px solid #ddc0bf;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    transition: all 0.15s;
+}
+
+textarea:focus {
+    border-color: #0060a8;
+    box-shadow: 0 0 0 2px rgba(0, 96, 168, 0.2);
+}
+
+.field-error {
+    color: #c62828;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.field-error.hidden {
+    display: none;
+}
+
+/* ---------- Checkbox personalizado (consentimiento / captcha) ---------- */
+.consent-box,
+.captcha-box {
+    background-color: #edeef2;
+    border: 1px solid #ddc0bf;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #191c1f;
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-custom {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #0060a8;
+    border-radius: 6px;
+    background-color: white;
+    position: relative;
+    transition: all 0.15s;
+    margin-top: 1px;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    background-color: #0060a8;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.checkbox-label input[type="checkbox"]:focus + .checkbox-custom {
+    box-shadow: 0 0 0 3px rgba(0, 96, 168, 0.25);
+}
+
+.checkbox-text {
+    line-height: 1.5;
+}
+
+/* ---------- Paso 2: lista de tipos de trámite ---------- */
+.tramite-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.tramite-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #ddc0bf;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #f8f9fd;
+    transition: all 0.15s;
+}
+
+.tramite-card:hover {
+    border-color: #0060a8;
+    background-color: #eef5fb;
+}
+
+.tramite-card.selected {
+    border-color: #0060a8;
+    background-color: #d3e4ff;
+    box-shadow: 0 0 0 2px rgba(0, 96, 168, 0.2);
+}
+
+.tramite-card input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #0060a8;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.tramite-card-info {
+    flex: 1;
+    cursor: pointer;
+}
+
+.tramite-card-info h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #191c1f;
+    margin-bottom: 4px;
+}
+
+.tramite-card-info p {
+    font-size: 13px;
+    color: #564242;
+}
+
+.btn-requisito {
+    flex-shrink: 0;
+    padding: 0 18px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #0060a8;
+    border-radius: 8px;
+    color: #0060a8;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.btn-requisito:hover {
+    background-color: #0060a8;
+    color: white;
+}
+
+/* ---------- Paso 3: carga de archivos ---------- */
+.file-upload-box {
+    border: 2px dashed #ddc0bf;
+    border-radius: 10px;
+    background-color: #f8f9fd;
+    transition: all 0.15s;
+}
+
+.file-upload-box.dragover {
+    border-color: #0060a8;
+    background-color: #eef5fb;
+}
+
+.file-upload-box input[type="file"] {
+    display: none;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.file-upload-icon {
+    font-size: 32px;
+}
+
+#fileUploadText {
+    font-size: 14px;
+    color: #564242;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.file-upload-box.has-file {
+    border-style: solid;
+    border-color: #2e7d32;
+    background-color: rgba(46, 125, 50, 0.06);
+}
+
+.file-upload-box.has-file #fileUploadText {
+    color: #2e7d32;
+}
+
+/* ---------- Paso 4: resumen y notificaciones ---------- */
+.resumen-box {
+    background-color: #edeef2;
+    border: 1px solid #ddc0bf;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.resumen-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddc0bf;
+    font-size: 14px;
+}
+
+.resumen-item:last-child {
+    border-bottom: none;
+}
+
+.resumen-item span:first-child {
+    font-weight: 700;
+    color: #564242;
+    flex-shrink: 0;
+}
+
+.resumen-item span:last-child {
+    color: #191c1f;
+    text-align: right;
+}
+
+.label-hint {
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: normal;
+    color: #8a7171;
+    font-size: 12px;
+}
+
+.notif-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.check-option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #191c1f;
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1px solid #ddc0bf;
+    border-radius: 8px;
+    background-color: #f8f9fd;
+    transition: all 0.15s;
+}
+
+.check-option-label:hover {
+    border-color: #0060a8;
+}
+
+.check-option-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.check-option-box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0060a8;
+    border-radius: 6px;
+    background-color: white;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.check-option-label input[type="checkbox"]:checked ~ .check-option-box {
+    background-color: #0060a8;
+}
+
+.check-option-label input[type="checkbox"]:checked ~ .check-option-box::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.check-option-label:has(input[type="checkbox"]:checked) {
+    border-color: #0060a8;
+    background-color: #eef5fb;
+}
+
+#notifCorreoNuevo {
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+/* ---------- Captcha propio (canvas, sin costo ni claves externas) ---------- */
+.captcha-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #564242;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.captcha-hint {
+    font-size: 12px;
+    color: #8a7171;
+    margin-bottom: 12px;
+}
+
+.captcha-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+#captchaCanvas {
+    border: 1px solid #ddc0bf;
+    border-radius: 8px;
+    background-color: #f8f9fd;
+    cursor: default;
+    user-select: none;
+}
+
+.captcha-refresh-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddc0bf;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.captcha-refresh-btn:hover {
+    border-color: #0060a8;
+    background-color: #eef5fb;
+    transform: rotate(60deg);
+}
+
+.captcha-input {
+    width: 100%;
+    max-width: 220px;
+    height: 44px;
+    padding: 0 14px;
+    background-color: white;
+    border: 1px solid #ddc0bf;
+    border-radius: 8px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    outline: none;
+    transition: all 0.15s;
+}
+
+.captcha-input:focus {
+    border-color: #0060a8;
+    box-shadow: 0 0 0 2px rgba(0, 96, 168, 0.2);
+}
+
+/* ---------- Modal de requisitos ---------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(25, 28, 31, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-box {
+    background-color: white;
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #edeef2;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    color: #564242;
+    transition: all 0.15s;
+}
+
+.modal-close:hover {
+    background-color: #ddc0bf;
+}
+
+.modal-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #191c1f;
+    margin-bottom: 4px;
+    padding-right: 32px;
+}
+
+.modal-subtitulo {
+    font-size: 13px;
+    color: #564242;
+    margin-bottom: 16px;
+}
+
+.modal-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0060a8;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.modal-list {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #191c1f;
+    line-height: 1.6;
+}
+
+.modal-box p {
+    font-size: 14px;
+    color: #191c1f;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .tramite-card {
+        flex-wrap: wrap;
+    }
+    .btn-requisito {
+        width: 100%;
+    }
+    .resumen-item {
+        flex-direction: column;
+        gap: 2px;
+    }
+    .resumen-item span:last-child {
+        text-align: left;
     }
 }

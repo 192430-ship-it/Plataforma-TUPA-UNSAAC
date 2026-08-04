@@ -79,7 +79,7 @@
                         <span class="kpi-trend">+12%</span>
                     </div>
                     <p class="kpi-label">Total Trámites</p>
-                    <p class="kpi-value">1,284</p>
+                    <p class="kpi-value" id="totalTramitesValue">1,284</p>
                 </div>
                 <!-- KPI 2 -->
                 <div class="kpi-card secondary">
@@ -88,7 +88,7 @@
                         <span class="kpi-badge">Meta: 3d</span>
                     </div>
                     <p class="kpi-label">Tiempo Promedio</p>
-                    <p class="kpi-value">4.2d</p>
+                    <p class="kpi-value" id="avgTiempoValue">4.2d</p>
                 </div>
                 <!-- KPI 3 -->
                 <div class="kpi-card tertiary">
@@ -97,7 +97,7 @@
                         <span class="kpi-trend success">94%</span>
                     </div>
                     <p class="kpi-label">Tasa de Aprobación</p>
-                    <p class="kpi-value">88%</p>
+                    <p class="kpi-value" id="approvalRateValue">88%</p>
                 </div>
                 <!-- Action Buttons Container -->
                 <div class="action-buttons">
@@ -121,6 +121,7 @@
                         </h3>
                         <button class="filter-btn">▽</button>
                     </div>
+                    <p class="pending-summary" id="pendingSummary">Cargando trámites pendientes...</p>
                     <div class="table-container">
                         <table class="expedients-table">
                             <thead>
@@ -133,7 +134,7 @@
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="pendingTableBody">
                                 <tr>
                                     <td><span class="priority alta">Alta</span></td>
                                     <td class="exp-id">EXP-2024-00124</td>
@@ -209,41 +210,8 @@
                             <span>▤</span>
                             Trámites por Facultad
                         </h4>
-                        <div class="chart-item">
-                            <div class="chart-label">
-                                <span>Ingenierías</span>
-                                <span class="chart-percent">42%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill primary" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        <div class="chart-item">
-                            <div class="chart-label">
-                                <span>Ciencias de la Salud</span>
-                                <span class="chart-percent">28%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill secondary" style="width: 28%"></div>
-                            </div>
-                        </div>
-                        <div class="chart-item">
-                            <div class="chart-label">
-                                <span>Ciencias Sociales</span>
-                                <span class="chart-percent">15%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill tertiary" style="width: 15%"></div>
-                            </div>
-                        </div>
-                        <div class="chart-item">
-                            <div class="chart-label">
-                                <span>Otros</span>
-                                <span class="chart-percent">15%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill other" style="width: 15%"></div>
-                            </div>
+                        <div id="facultyChart" class="faculty-chart">
+                            <p style="color:#564242;">Cargando trámites por facultad...</p>
                         </div>
                     </div>
 
@@ -253,22 +221,19 @@
                             <span>➤</span>
                             Acceso Rápido
                         </h4>
+                        <div id="quickInfo" class="quick-info" style="display:none; padding:14px 16px; background:#eef3ff; border-radius:18px; margin-bottom:16px; color:#1b2d5d;"></div>
                         <div class="quick-grid">
-                            <button class="quick-btn">
+                            <button class="quick-btn" data-action="dni">
                                 <span>✓</span>
                                 <span>Validar DNI</span>
                             </button>
-                            <button class="quick-btn">
+                            <button class="quick-btn" data-action="directorio">
                                 <span>☎</span>
                                 <span>Directorio</span>
                             </button>
-                            <button class="quick-btn">
+                            <button class="quick-btn" data-action="base-legal">
                                 <span>¶</span>
                                 <span>Base Legal</span>
-                            </button>
-                            <button class="quick-btn">
-                                <span>⌨</span>
-                                <span>Soporte IT</span>
                             </button>
                         </div>
                     </div>

@@ -1,4 +1,24 @@
-/* Reset y estilos base - SIN espaciado al empezar */
+/* ============================================================
+   TOKENS — Sistema de diseño "Registro Institucional"
+   ============================================================ */
+:root {
+    --maroon-900: #4A0E1F;
+    --gold-600: #B08628;
+    --ink-900: #1E1B18;
+    --ink-600: #564242;
+    --stone-050: #FAF9F6;
+    --stone-100: #F1EFE9;
+    --stone-300: #E7E3D9;
+    --white: #FFFFFF;
+    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Reset y estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -6,434 +26,507 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f8f9fd;
-    color: #191c1f;
+    font-family: var(--font-body);
+    background-color: var(--stone-050);
+    color: var(--ink-900);
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+:focus-visible {
+    outline: 2px solid var(--maroon-700);
+    outline-offset: 2px;
+}
+
 /* ========== HEADER ========== */
-/* ========== HEADER MODIFICADO - Logo completamente a la izquierda ========== */
 header {
     position: sticky;
     top: 0;
     z-index: 50;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 32px;
     height: 64px;
-    background-color: #f8f9fd;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: var(--stone-050);
+    border-bottom: 1px solid var(--stone-300);
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-right: 40px; /* Espacio entre logo y menú */
+    gap: 10px;
 }
 
 .icon-bank {
-    font-size: 32px;
-    color: #4b000e;
+    display: flex;
+    color: var(--maroon-900);
+}
+
+.icon-bank svg {
+    width: 24px;
+    height: 24px;
 }
 
 .logo-area h1 {
+    font-family: var(--font-display);
     font-size: 20px;
     font-weight: 600;
-    color: #4b000e;
-    letter-spacing: -0.025em;
-    white-space: nowrap; /* Evita que el texto se rompa */
+    color: var(--maroon-900);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-left: 48px;
 }
 
 nav {
     display: flex;
     align-items: center;
-    gap: 32px; /* Espacio entre los items del menú */
-    flex: 1; /* Toma el espacio restante */
+    gap: 32px;
 }
 
 nav a {
     text-decoration: none;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.15s;
-    color: #564242;
-    padding-bottom: 4px;
-    white-space: nowrap; /* Evita que el texto se rompa */
+    color: var(--ink-600);
+    padding: 20px 0;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
 }
 
 nav a:hover {
-    color: #0060a8;
+    color: var(--maroon-900);
 }
 
 nav a.active {
-    color: #0060a8;
-    border-bottom: 2px solid #0060a8;
-}
-
-.header-actions {
-    margin-left: auto; /* Empuja el botón de perfil a la derecha */
+    color: var(--maroon-900);
+    border-bottom-color: var(--gold-600);
 }
 
 .profile-btn {
     background: none;
-    border: none;
-    font-size: 28px;
+    border: 1px solid transparent;
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    transition: background-color 0.15s;
+    color: var(--ink-600);
+    display: flex;
+    transition: all 0.15s;
+    margin-left: auto;
+}
+
+.profile-btn svg {
+    width: 22px;
+    height: 22px;
 }
 
 .profile-btn:hover {
-    background-color: #e7e8ec;
+    background-color: var(--stone-100);
+    color: var(--maroon-900);
 }
 
-/* Responsive para móvil */
 @media (max-width: 768px) {
-    header {
-        padding: 0 16px;
-    }
-    
-    nav {
-        display: none; /* En móvil se oculta el menú, usa el menú inferior */
-    }
-    
-    .logo-area {
-        margin-right: 0;
-    }
+    header { padding: 0 16px; }
+    nav { display: none; }
+    .logo-area { margin-right: 0; }
 }
-
 
 /* ========== MAIN CONTENT ========== */
 main {
     flex-grow: 1;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 24px 32px;
+    padding: 32px 32px 24px;
+    width: 100%;
 }
 
-/* Hero Section */
+/* ---------- Masthead (letterhead institucional) ---------- */
 .hero-section {
     margin-bottom: 32px;
 }
 
-.hero-text {
-    margin-bottom: 20px;
+.masthead {
+    background: var(--maroon-900);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 36px 40px 30px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-text h2 {
-    font-size: 32px;
+.masthead::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--gold-600);
+}
+
+.masthead-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+    margin-bottom: 14px;
+}
+
+.masthead-title {
+    font-family: var(--font-display);
+    font-size: 36px;
     font-weight: 600;
-    color: #191c1f;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+.masthead-sub {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 620px;
+}
+
+/* ---------- Búsqueda ---------- */
+.search-container {
+    max-width: 640px;
+}
+
+.search-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-500);
     margin-bottom: 8px;
 }
 
-.hero-text p {
-    font-size: 18px;
-    color: #564242;
-}
-
-.search-container {
+.search-field {
     position: relative;
-    max-width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border: 1px solid var(--stone-300);
+    border-radius: 4px;
+    transition: all 0.15s;
 }
 
-.search-icon {
+.search-field svg {
     position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #8a7171;
+    left: 14px;
+    width: 17px;
+    height: 17px;
+    color: var(--ink-400);
+    pointer-events: none;
+}
+
+.search-field:focus-within {
+    border-color: var(--maroon-700);
+    box-shadow: 0 0 0 3px rgba(74, 14, 31, 0.12);
 }
 
 .search-container input {
     width: 100%;
-    padding: 14px 16px 14px 48px;
-    background-color: white;
-    border: 1px solid #ddc0bf;
-    border-radius: 12px;
-    font-size: 16px;
+    padding: 13px 16px 13px 42px;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--ink-900);
     outline: none;
-    transition: all 0.15s;
-}
-
-.search-container input:focus {
-    box-shadow: 0 0 0 2px rgba(0, 96, 168, 0.2);
-    border-color: #0060a8;
 }
 
 .search-container input::placeholder {
-    color: #8a7171;
+    color: var(--ink-400);
 }
 
-/* Categories Section - Borde cuadrado como en la imagen */
+/* ---------- Categorías: pestañas de índice ---------- */
 .categories-section {
-    margin-bottom: 32px;
+    margin-bottom: 8px;
 }
 
 .categories-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    border-bottom: 1px solid var(--stone-300);
 }
 
 .category-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background-color: white;
-    border: 2px solid #ddc0bf;
-    border-radius: 12px;
-    font-size: 14px;
+    padding: 13px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-family: var(--font-body);
+    font-size: 13px;
     font-weight: 600;
-    color: #564242;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-500);
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.category-btn .cat-icon {
-    font-size: 20px;
+    transition: color 0.15s, border-color 0.15s;
 }
 
 .category-btn:hover {
-    border-color: #0060a8;
-    background-color: #f0f7ff;
-    transform: translateY(-2px);
+    color: var(--maroon-900);
 }
 
 .category-btn.active {
-    background-color: #0060a8;
-    border-color: #0060a8;
-    color: white;
+    color: var(--maroon-900);
+    border-bottom-color: var(--gold-600);
+    font-weight: 700;
 }
 
-/* Contenedor de resultados */
+/* ---------- Contador de resultados ---------- */
 .results-container {
-    margin-bottom: 20px;
+    margin: 24px 0 20px;
 }
 
 .results-count {
-    font-size: 14px;
-    color: #564242;
-    padding: 8px 0;
-    border-bottom: 1px solid #e1e2e6;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stone-300);
 }
 
-/* Procedures Grid - 3 columnas fijas en desktop */
+/* ========== FICHAS DE PROCEDIMIENTO ========== */
 .procedures-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
     margin-bottom: 24px;
 }
 
-/* Procedure Card - Estilo como en la imagen */
 .procedure-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
+    background: var(--white);
+    border: 1px solid var(--stone-300);
+    border-left: 3px solid transparent;
+    border-radius: 6px;
+    padding: 22px 24px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
-    border: 1px solid #e1e2e6;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .procedure-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-color: #0060a8;
+    border-left-color: var(--gold-600);
+    box-shadow: 0 6px 20px rgba(30, 20, 15, 0.08);
 }
 
-/* Categoría en la card - como en la imagen */
+/* Eyebrow de categoría — reemplaza el "📌" por una marca tipográfica */
 .card-category {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    color: #0060a8;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--maroon-700);
+    text-transform: uppercase;
+    margin-bottom: 6px;
 }
 
 .card-category::before {
-    content: "📌 ";
+    content: "";
+    width: 14px;
+    height: 2px;
+    background: var(--gold-600);
+    flex-shrink: 0;
 }
 
-/* Código del trámite */
+/* Código del trámite — estilo folio/referencia */
 .procedure-code {
     display: block;
-    font-size: 12px;
-    color: #8a7171;
-    margin-bottom: 8px;
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-500);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
 }
 
-/* Título - como en la imagen */
+/* Título */
 .procedure-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #191c1f;
-    margin-bottom: 20px;
-    line-height: 1.4;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.35;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--stone-200);
 }
 
-/* Detalles del trámite - formato como en la imagen */
+/* Detalle tipo ledger (sin iconos de emoji) */
 .procedure-details {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     flex-grow: 1;
 }
 
 .detail-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 0;
-    border-bottom: 1px dashed #f0f0f0;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--stone-200);
 }
 
 .detail-item:last-child {
     border-bottom: none;
 }
 
+/* El icono/emoji original se oculta; el texto ya incluye la etiqueta ("Costo:", "Tiempo:", etc.) */
 .detail-icon {
-    font-size: 18px;
-    color: #8a7171;
-    min-width: 28px;
+    display: none;
 }
 
 .detail-text {
-    font-size: 14px;
-    color: #564242;
+    font-size: 13.5px;
+    color: var(--ink-600);
+    font-family: var(--font-body);
 }
 
 .detail-text strong {
-    color: #191c1f;
+    font-family: var(--font-mono);
+    color: var(--ink-900);
     font-weight: 600;
+    font-size: 13px;
 }
 
 .detail-text .positive {
-    color: #2e7d32;
+    color: var(--green-700);
     font-weight: 600;
 }
 
 .detail-text .negative {
-    color: #c62828;
+    color: var(--red-700);
     font-weight: 600;
 }
 
 .detail-text .automatic {
-    color: #0060a8;
+    color: var(--blue-700);
     font-weight: 600;
 }
 
 .detail-text .free {
-    color: #4b000e;
+    color: var(--gold-600);
     font-weight: 700;
 }
 
-/* Botón de inicio - estilo como en la imagen */
+/* Botón de inicio — oficial, sólido */
 .start-btn {
     width: 100%;
     padding: 12px 20px;
-    background-color: transparent;
-    color: #0060a8;
-    border: 2px solid #0060a8;
-    border-radius: 40px;
-    font-size: 14px;
+    background-color: var(--maroon-900);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 13px;
     font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: all 0.2s ease;
-    margin-top: 8px;
+    transition: background-color 0.15s ease;
+    margin-top: 4px;
 }
 
 .start-btn:hover {
-    background-color: #0060a8;
-    color: white;
-    transform: scale(1.02);
+    background-color: var(--maroon-700);
 }
 
 .start-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .start-btn span {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1;
 }
 
 /* Card especial de ayuda */
 .help-card {
-    background: linear-gradient(135deg, #f8f9fd 0%, #edeef2 100%);
-    border-radius: 16px;
-    padding: 48px 24px;
+    background: var(--stone-100);
+    border-radius: 6px;
+    padding: 40px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 2px dashed #ddc0bf;
-    min-height: 320px;
+    border: 1px dashed var(--stone-300);
+    min-height: 300px;
     grid-column: span 1;
 }
 
 .help-icon {
-    font-size: 56px;
-    margin-bottom: 20px;
+    display: none; /* se retira el emoji por defecto para mantener el lenguaje visual sin iconos ilustrativos */
 }
 
 .help-card h4 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #191c1f;
-    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 10px;
 }
 
 .help-card p {
     font-size: 14px;
-    color: #564242;
-    margin-bottom: 24px;
+    color: var(--ink-600);
+    margin-bottom: 22px;
     max-width: 250px;
 }
 
 .help-btn {
-    padding: 12px 28px;
+    padding: 11px 26px;
     background: transparent;
-    border: 2px solid #0060a8;
-    color: #0060a8;
-    border-radius: 40px;
-    font-size: 14px;
-    font-weight: 600;
+    border: 1px solid var(--maroon-900);
+    color: var(--maroon-900);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .help-btn:hover {
-    background-color: #0060a8;
-    color: white;
+    background-color: var(--maroon-900);
+    color: var(--white);
 }
 
-/* Footer */
+/* ========== FOOTER ========== */
 footer {
-    background-color: white;
-    border-top: 1px solid #ddc0bf;
-    padding: 40px 32px;
+    background-color: var(--stone-100);
+    border-top: 1px solid var(--stone-300);
+    padding: 36px 32px;
     margin-top: 40px;
 }
 
@@ -452,22 +545,21 @@ footer {
 }
 
 @media (min-width: 768px) {
-    .footer-brand {
-        text-align: left;
-    }
+    .footer-brand { text-align: left; }
 }
 
 .brand-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #4b000e;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--maroon-900);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .footer-brand p {
     font-size: 13px;
-    color: #564242;
+    color: var(--ink-600);
     max-width: 384px;
 }
 
@@ -479,17 +571,20 @@ footer {
 }
 
 .footer-links a {
-    color: #564242;
+    color: var(--ink-600);
     text-decoration: none;
-    font-size: 13px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     transition: color 0.15s;
 }
 
 .footer-links a:hover {
-    color: #4b000e;
+    color: var(--maroon-900);
 }
 
-/* Mobile Navigation */
+/* ========== MOBILE NAV ========== */
 .mobile-nav {
     display: none;
     position: fixed;
@@ -500,9 +595,8 @@ footer {
     align-items: center;
     height: 64px;
     padding: 0 16px;
-    background-color: #f8f9fd;
-    border-top: 1px solid #ddc0bf;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+    background-color: var(--stone-050);
+    border-top: 1px solid var(--stone-300);
     z-index: 50;
 }
 
@@ -512,118 +606,71 @@ footer {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    gap: 4px;
-    color: #564242;
+    gap: 3px;
+    color: var(--ink-600);
     font-size: 10px;
+    font-weight: 600;
     padding: 8px 16px;
-    border-radius: 40px;
+    border-radius: 8px;
     transition: all 0.15s;
 }
 
+.mobile-nav a svg {
+    width: 19px;
+    height: 19px;
+}
+
 .mobile-nav a.active {
-    color: white;
-    background-color: #0060a8;
-}
-
-.mobile-nav a span:first-child {
-    font-size: 20px;
-}
-
-/* Animaciones */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.procedure-card {
-    animation: fadeInUp 0.3s ease-out forwards;
+    color: var(--white);
+    background-color: var(--maroon-900);
 }
 
 /* ========== MEDIA QUERIES ========== */
-/* Tablet: 2 columnas */
 @media (max-width: 900px) {
     .procedures-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
     }
+    .masthead-title { font-size: 30px; }
 }
 
-/* Móvil: 1 columna */
 @media (max-width: 768px) {
-    header {
-        padding: 0 16px;
-    }
-    
-    nav {
-        display: none;
-    }
-    
+    header { padding: 0 16px; }
+    nav { display: none; }
+
     main {
-        padding: 16px;
+        padding: 20px 16px 16px;
         margin-bottom: 72px;
     }
-    
-    .hero-text h2 {
-        font-size: 24px;
-    }
-    
-    .hero-text p {
-        font-size: 14px;
-    }
-    
+
+    .masthead { padding: 28px 24px 24px; }
+    .masthead-title { font-size: 26px; }
+    .masthead-sub { font-size: 14px; }
+
     .procedures-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-    
-    .categories-grid {
-        gap: 10px;
-    }
-    
+
     .category-btn {
-        padding: 10px 18px;
-        font-size: 13px;
+        padding: 10px 14px;
+        font-size: 12px;
     }
-    
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
-    
-    .mobile-nav {
-        display: flex;
-    }
-    
-    .procedure-card {
-        padding: 16px;
-    }
-    
-    .procedure-title {
-        font-size: 16px;
-    }
+
+    .mobile-nav { display: flex; }
+
+    .procedure-card { padding: 18px; }
+    .procedure-title { font-size: 17px; }
 }
 
 @media (max-width: 480px) {
-    .category-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
-    
-    .category-btn .cat-icon {
-        font-size: 16px;
-    }
-    
-    .procedure-title {
-        font-size: 15px;
-    }
-    
-    .detail-text {
-        font-size: 13px;
-    }
+    .masthead-title { font-size: 23px; }
+    .category-btn { padding: 9px 12px; font-size: 11.5px; }
+    .procedure-title { font-size: 16px; }
+    .detail-text { font-size: 13px; }
 }
