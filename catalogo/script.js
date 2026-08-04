@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileBtn = document.querySelector('.profile-btn');
     if (profileBtn) {
         profileBtn.addEventListener('click', () => {
-            alert('🔐 Sistema de autenticación UNSAAC\n\nPor favor ingrese sus credenciales:\n• DNI / Carné Universitario\n• Contraseña\n\n¿No tienes cuenta? Regístrate en Mesa de Partes Virtual.');
+            window.location.href = '../panel_admin/login.html';
         });
     }
     

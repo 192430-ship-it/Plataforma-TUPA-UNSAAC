@@ -189,11 +189,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Botón de login
-    const loginBtn = document.querySelector('.login-btn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-            alert('Sistema de autenticación\n\nPor favor ingrese sus credenciales UNSAAC.');
+    // Botón de perfil
+    const profileBtn = document.querySelector('.profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            window.location.href = '../panel_admin/login.html';
         });
     }
     
